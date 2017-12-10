@@ -36,7 +36,7 @@ var GitHubStrategy = require('passport-github').Strategy;
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/github/callback"
+    callbackURL: "https://agile-brushlands-46898.herokuapp.com//auth/github/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     cb(null, {
@@ -91,17 +91,17 @@ app.get('/auth/github/callback',
   }
 );
 
-// app.get('/login', function(req, res) {
-//   res.redirect('index.html');
-// });
+app.get('/login', function(req, res) {
+  res.render('login.ejs',{a:7});
+});
 
 
 app.get('/', function(req, res) {
-  // var token = req.cookies['token'];
+   var token = req.cookies['token'];
 
-  // if (!token) {
-  //   return res.redirect('/login.html');
-  // }
+  if (!token) {
+    return res.redirect('/login');
+  }
     res.redirect('index.html');
   });
 
