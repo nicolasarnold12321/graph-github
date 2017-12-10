@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Github information</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    </head>
+    <body onclick="setUp()">
+    <div id="whole" class="content-center">
+    <div class="box">
+        <div class="introduction">
+            <h1>Hello and welcome to this gitub interface</h1>
+            <p>
+                This particular interface gathers information about you and your reposotories
+            </p> 
+        </div>
+    </div>
+    <button><a onclick="Logout()">Logout</a></button>
+    <div id="preload" style="display:none">
+            <div id="info">
+                <h1>This is all the information on the current user:<br><br></h1>
+            </div>
+            <div id="repos">
+                <h1>This is all their reposotories information:<br><br></h1>
+            </div>
+    </div>
+    <div id="loader">
+        <img src="http://i.giftrunk.com/44frgm.gif" style="display:block">
+    </div>
+    </div>
+    <script type="communicator.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>

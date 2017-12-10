@@ -1,0 +1,96 @@
+body{
+  background: #0000FF;
+}
+#whole{
+    background-color: deepskyblue;
+    background-color: deepskyblue;
+    border-radius: 30px;
+    margin: auto;
+    border: 5px solid azure;
+    padding: 5px;
+    align-content: center;
+}
+#inner{
+  background: white;
+   border-radius: 30px;
+    margin: auto;
+    border: 5px solid azure;
+    padding: 5px;
+    align-content: center;
+}
+
+.node circle {
+  fill: deepskyblue;
+  stroke: deepskyblue;
+  stroke-width: 3px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: deepskyblue;
+  stroke-width: 2px;
+}
+
+.node circle {
+  fill: #;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.node--internal circle {
+  fill: #555;
+}
+
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #555;
+  stroke-opacity: 0.4;
+  stroke-width: 1.5px;
+}
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+.node {cursor: pointer;
+  }
+
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
+  }
+
+  .node text {
+    font: 12px sans-serif;
+  }
+
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+  }
