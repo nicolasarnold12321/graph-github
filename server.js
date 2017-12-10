@@ -36,7 +36,7 @@ var GitHubStrategy = require('passport-github').Strategy;
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "https://agile-brushlands-46898.herokuapp.com//auth/github/callback"
+    callbackURL: "https://agile-brushlands-46898.herokuapp.com/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     cb(null, {
