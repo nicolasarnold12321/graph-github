@@ -92,7 +92,7 @@ app.get('/auth/github/callback',
 );
 
 app.get('/login', function(req, res) {
-  res.render('login.ejs',{a:7});
+  res.redirect('/login.html');
 });
 
 
@@ -100,9 +100,9 @@ app.get('/', function(req, res) {
   var token = req.cookies['token'];
 
   if (!token) {
-    return res.redirect('/login');
+    return res.redirect('/login.html');
   }
-    res.redirect('/index.html');
+    res.redirect('index.html');
   });
 
 app.use(express.static('public'));
