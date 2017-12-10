@@ -43,7 +43,7 @@ var GitHubStrategy = require('passport-github').Strategy;
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "https://github-graph-api.herokuapp.com/.herokuapp.com/auth/github/callback"
+    callbackURL: "https://github-graph-api.herokuapp.com/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     cb(null, {
