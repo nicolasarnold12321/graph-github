@@ -91,9 +91,9 @@ app.get('/auth/github/callback',
   }
 );
 
-app.get('/login.html', function(req, res) {
-  res.redirect('/');
-});
+// app.get('/login', function(req, res) {
+//   res.redirect('index.html');
+// });
 
 
 app.get('/', function(req, res) {
