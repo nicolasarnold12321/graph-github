@@ -104,7 +104,6 @@ app.get('/login', function(req, res) {
 
 app.get('/index', function(req, res) {
 var token = req.cookies['token'];
-
   if (!token) {
     return res.redirect('/login');
   }
