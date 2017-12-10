@@ -1,8 +1,8 @@
 
 
 //my acccess keys to my app
-const GITHUB_CLIENT_ID = "b94f744494e18ad4c562";
-const GITHUB_CLIENT_SECRET = "b6a40b07d9229b7d1a29c3f7b4f26f9eda979c14";
+const GITHUB_CLIENT_ID = "da1ac7f832db7c4d5efa";
+const GITHUB_CLIENT_SECRET = "69ae815eb6593c68bf080f9b2f8b162d86acc14c";
 
 
 
