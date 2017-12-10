@@ -91,18 +91,18 @@ app.get('/auth/github/callback',
   }
 );
 
-app.get('/login', function(req, res) {
-  res.redirect('index.html');
+app.get('/login.html', function(req, res) {
+  res.redirect('/');
 });
 
 
 app.get('/', function(req, res) {
   var token = req.cookies['token'];
 
-  // if (!token) {
-  //   return res.redirect('/login.html');
-  // }
-    res.redirect('index');
+  if (!token) {
+    return res.redirect('/login.html');
+  }
+    res.redirect('index.html');
   });
 
 app.use(express.static('public'));
