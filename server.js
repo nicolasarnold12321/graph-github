@@ -102,6 +102,14 @@ app.get('/login', function(req, res) {
   res.render('login.ejs',{a:7});
 });
 
+app.get('/index', function(req, res) {
+var token = req.cookies['token'];
+
+  if (!token) {
+    return res.redirect('/login');
+  }
+    res.render('index');
+});
 
 app.get('/', function(req, res) {
    var token = req.cookies['token'];
@@ -109,7 +117,7 @@ app.get('/', function(req, res) {
   if (!token) {
     return res.redirect('/login');
   }
-    res.redirect('index.html');
+    res.render('index');
   });
 
 app.use(express.static('public'));
