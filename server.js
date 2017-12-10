@@ -109,7 +109,7 @@ app.use(express.static('public'));
 
 //creates the server specified
 
-var server = app.listen(port, function() {
+var server = app.listen(process.env.PORT||port, function() {
   console.log('Listening on port %d', server.address().port);
 });
 
