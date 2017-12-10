@@ -97,11 +97,11 @@ app.get('/auth/github/callback',
 
 
 app.get('/', function(req, res) {
-  var token = req.cookies['token'];
+  // var token = req.cookies['token'];
 
-  if (!token) {
-    return res.redirect('/login.html');
-  }
+  // if (!token) {
+  //   return res.redirect('/login.html');
+  // }
     res.redirect('index.html');
   });
 
