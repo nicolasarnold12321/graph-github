@@ -121,7 +121,7 @@ else
 function renderjsontree(theData){
   debugger;
     var margin = {top: 20, right: 90, bottom: 30, left: 90},
-    width = 1000 - margin.left - margin.right,
+    width = 2000 - margin.left - margin.right,
     height = 7000 - margin.top - margin.bottom;
      var svg = d3.select("#preload").append("svg")
     .attr("width", width + margin.right + margin.left)
