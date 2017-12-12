@@ -8,14 +8,19 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
     <body>
-        <div id="whole" class="content-center text-center">
-            <div class="introduction">
-                <h1>Hello and welcome to this gitub interface</h1>
-                <p>
-                    This particular interface gathers information about you and your reposotories
-                </p> 
+        <div class="container-fluid content-center text-center whole">
+
+            <div class="introduction container">
+                <div class="row justify-content-center">
+                    <h3>Hello and welcome to this gitub interface</h3>
+                </div>
+                <div class="row justify-content-center">
+                    <p>
+                        This particular interface gathers information about you and your reposotories
+                    </p> 
+                </div>
             </div>
-            <div id="inner">
+            <div style="background-color: white;" class="container">
                 <div id="info">
                     <p>Choose the following data you want to see</p>
                      <div id ="optType" class="radio" value="0">
@@ -33,19 +38,36 @@
                         <li><a href="#">Linkedin</a></li>
                       </ul>
                     </div>
-                    <div id="custominput" style="visibility: hidden">
-                        Type the repository name here
-                        <input type="text" name="name" id="reponame"><br>
-                        Type the name of the owner here
-                        <input type="text" name="owner" id="owner">
+                    <div id="custominput" class="row" style="visibility: hidden">
+                        <div class="col-lg-6 offset-lg-3">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                         <p>Type the repository name here<p>
+                                    </div>
+                                     <div class="col-lg-6">
+                                        <input type="text" name="name" id="reponame"><br>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                         <p>Type the name of the owner here<p>
+                                    </div>
+                                     <div class="col-lg-6">
+                                       <input type="text" name="owner" id="owner"></div><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button><a onclick="getServerData()">Let's get that data!</a></button>
                     </div>
-                    <button><a onclick="getServerData()">Let's get that data!</a></button>
-                </div>
+                    
                  <div id="loader" style="display:none">
                     <img src="http://i.giftrunk.com/44frgm.gif">
                 </div>
                 <div id="preload" style="display:none" width="1000" height="1000">
                         <svg id="graph"></svg>    
+                </div>
                 </div>
             </div>
         </div>

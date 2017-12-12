@@ -1,14 +1,14 @@
 body{
   background: #0000FF;
 }
-#whole{
-    background-color: deepskyblue;
+.whole{
     background-color: deepskyblue;
     border-radius: 30px;
     margin: auto;
     border: 5px solid azure;
     padding: 5px;
     align-content: center;
+    padding-bottom: 150px;
 }
 #inner{
   background: white;
