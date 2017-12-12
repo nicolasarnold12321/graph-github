@@ -66,17 +66,20 @@ app.get('/graph.json.repo', function(req,res){
   var token = req.cookies['token'];
   request({
     url:'https://api.github.com/repos/'+owner+'/'+repo+'/commits',
-    headers: { 'User-Agent': 'request',
-                'Authorization': 'token '+ token
+    headers: { 'User-Agent': 'request'
+                // 'Authorization': 'token '+ token
               }
   }, function(err,response,body){
     console.log(err+body);
+    console.log(response.statusCode);
     if(!err&&response.statusCode == 200){
     var d=createJSONDATAInteractive(JSON.parse(body),owner);
     res.send(d);
   }
-    else
-      res.send(body);
+  else{
+    res.status(400);
+    res.send(body);
+  }
   });
 });
 
@@ -86,12 +89,11 @@ app.get('/graph.json', function(req,res){
   request({
     url: 'https://api.github.com/orgs/'+name+'/public_members',
     headers: { 'User-Agent': 'request',
-                'name' : name,
-                'Authorization': 'token '+ token
+                'name' : name
+                // 'Authorization': 'token '+ token
              }
   }, function(err,response,body){
     var d;
-    console.log(err.text());
     if(!err&&response.statusCode == 200){
     if(req.query.type==0)
       d=createJSONDATAInteractive(JSON.parse(body),req.query.name);
@@ -99,8 +101,10 @@ app.get('/graph.json', function(req,res){
       d=createJSONDATA(JSON.parse(body),req.query.name);
     res.send(d);
   }
-  else
+  else{
+    res.status(req.statusCode);
     res.send(body);
+  }
   });
 });
 app.get('/auth/github/callback',

@@ -118,18 +118,16 @@ function getServerData(){
       debugger;
       if(type!="Interactive repository"&&name!="Choose Organisation"){
      fetch('/graph.json?name='+name.toLowerCase()+'&type='+(type=="Denograph"?"1":"0")).then(function(response){
-            return response.json();
+             if(response.status==200)
+              return response.json();
+            alert("There was an error with your request");
+            document.location.href="http://localhost:3000/index.html";
         }).then(function(data){
-          if(data.message!="Bad credentials"){
             if(document.getElementById("optType").value=="Denograph interactive"){
               renderjsonInteractive(data);}
-            else
-              renderjsontree(data);
-            stopLoad();
-          }
-          else{
-            alert("error sorry bad credentials");
-            document.location.href="http://github-graph-api.herokuapp.com";}
+              else
+                renderjsontree(data);
+              stopLoad();
         });
       }
       else{
@@ -139,19 +137,14 @@ function getServerData(){
           console.log('here');
           console.log(repo+owner);
           fetch('/graph.json.repo?repo='+repo.toLowerCase()+'&owner='+owner.toLowerCase()).then(function(response){
+            if(response.status==200)
               return response.json();
+            alert("There was an error with your request");
+            document.location.href="http://localhost:3000/index.html";
           }).then(function(data){
-            if(data.message!="Bad credentials"){
               renderjsonInteractive(data);
               stopLoad();
-            }
-             else
-              {
-                alert("error sorry");
-                document.location.href="http://github-graph-api.herokuapp.com";
-                }
           });
-      
       }
       else
         prompt("Repository/user not chosen!");
