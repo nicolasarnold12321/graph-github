@@ -121,7 +121,7 @@ function getServerData(){
              if(response.status==200)
               return response.json();
             alert("There was an error with your request");
-            document.location.href="http://github-graph-api.herokuapp.com/index.html";
+            document.location.href="http://github-graph-api.herokuapp.com/index";
         }).then(function(data){
             if(document.getElementById("optType").value=="Denograph interactive"){
               renderjsonInteractive(data);}
@@ -140,7 +140,7 @@ function getServerData(){
             if(response.status==200)
               return response.json();
             alert("There was an error with your request");
-            document.location.href="http://github-graph-api.herokuapp.com/index.html";
+            document.location.href="http://github-graph-api.herokuapp.com/index";
           }).then(function(data){
               renderjsonInteractive(data);
               stopLoad();
