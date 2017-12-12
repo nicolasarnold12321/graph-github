@@ -63,40 +63,46 @@ app.get('/auth/github', passport.authenticate('github'));
 app.get('/graph.json.repo', function(req,res){
   var repo=req.query.repo;
   var owner=req.query.owner;
+  var token = req.cookies['token'];
   request({
     url:'https://api.github.com/repos/'+owner+'/'+repo+'/commits',
-    headers: { 'User-Agent': 'request'}
-  }, function(error,response,body){
-     if(!err&&response.statusCode == 200){
-        var d=createJSONDATAInteractive(JSON.parse(body),owner);
-        res.send(d);
-     }
-     else
-        res.send(body);
-  });
-});
-
-app.get('/graph.json', function(req,res){
-  var name=req.query.name;
-  request({
-    url: 'https://api.github.com/orgs/'+name+'/public_members',
     headers: { 'User-Agent': 'request',
-                'name' : name
-             }
-  }, function(error,response,body){
-    var d;
-     if(!err&&response.statusCode == 200){
-        if(req.query.type==0)
-          d=createJSONDATAInteractive(JSON.parse(body),req.query.name);
-        else 
-          d=createJSONDATA(JSON.parse(body),req.query.name);
-        res.send(d);
-     }
+                'Authorization': 'token '+ token
+              }
+  }, function(err,response,body){
+    console.log(err+body);
+    if(!err&&response.statusCode == 200){
+    var d=createJSONDATAInteractive(JSON.parse(body),owner);
+    res.send(d);
+  }
     else
       res.send(body);
   });
 });
 
+app.get('/graph.json', function(req,res){
+  var name=req.query.name;
+  var token = req.cookies['token'];
+  request({
+    url: 'https://api.github.com/orgs/'+name+'/public_members',
+    headers: { 'User-Agent': 'request',
+                'name' : name,
+                'Authorization': 'token '+ token
+             }
+  }, function(err,response,body){
+    var d;
+    console.log(err.text());
+    if(!err&&response.statusCode == 200){
+    if(req.query.type==0)
+      d=createJSONDATAInteractive(JSON.parse(body),req.query.name);
+    else 
+      d=createJSONDATA(JSON.parse(body),req.query.name);
+    res.send(d);
+  }
+  else
+    res.send(body);
+  });
+});
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
