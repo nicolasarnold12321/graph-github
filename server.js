@@ -200,7 +200,7 @@ function createJSONDATAInteractive(data,name){
   var d3_elements;
   var children=new Array();
     for(var i=0; i<data.length;i++){ 
-     children.push({name:"commits #"+(i+1),children:getChildren(data[0],Object.keys(data))});
+     children.push({name:"commits #"+(i+1),children:getChildren(data[i],Object.keys(data))});
     }
    d3_elements={name:name, children:children};
    return d3_elements;
