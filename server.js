@@ -67,8 +67,12 @@ app.get('/graph.json.repo', function(req,res){
     url:'https://api.github.com/repos/'+owner+'/'+repo+'/commits',
     headers: { 'User-Agent': 'request'}
   }, function(error,response,body){
-    var d=createJSONDATAInteractive(JSON.parse(body),owner);
-    res.send(d);
+     if(!err&&response.statusCode == 200){
+        var d=createJSONDATAInteractive(JSON.parse(body),owner);
+        res.send(d);
+     }
+     else
+        res.send(body);
   });
 });
 
@@ -81,11 +85,15 @@ app.get('/graph.json', function(req,res){
              }
   }, function(error,response,body){
     var d;
-    if(req.query.type==0)
-      d=createJSONDATAInteractive(JSON.parse(body),req.query.name);
-    else 
-      d=createJSONDATA(JSON.parse(body),req.query.name);
-    res.send(d);
+     if(!err&&response.statusCode == 200){
+        if(req.query.type==0)
+          d=createJSONDATAInteractive(JSON.parse(body),req.query.name);
+        else 
+          d=createJSONDATA(JSON.parse(body),req.query.name);
+        res.send(d);
+     }
+    else
+      res.send(body);
   });
 });
 

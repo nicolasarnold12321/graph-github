@@ -120,11 +120,16 @@ function getServerData(){
      fetch('/graph.json?name='+name.toLowerCase()+'&type='+(type=="Denograph"?"1":"0")).then(function(response){
             return response.json();
         }).then(function(data){
-          if(document.getElementById("optType").value=="Denograph interactive"){
-            renderjsonInteractive(data);}
+          if(data.message!="Bad credentials"){
+            if(document.getElementById("optType").value=="Denograph interactive"){
+              renderjsonInteractive(data);}
             else
               renderjsontree(data);
             stopLoad();
+          }
+          else{
+            alert("error sorry bad credentials");
+            document.location.href="http://github-graph-api.herokuapp.com";}
         });
       }
       else{
@@ -136,8 +141,15 @@ function getServerData(){
           fetch('/graph.json.repo?repo='+repo.toLowerCase()+'&owner='+owner.toLowerCase()).then(function(response){
               return response.json();
           }).then(function(data){
+            if(data.message!="Bad credentials"){
               renderjsonInteractive(data);
               stopLoad();
+            }
+             else
+              {
+                alert("error sorry");
+                document.location.href="http://github-graph-api.herokuapp.com";
+                }
           });
       
       }
