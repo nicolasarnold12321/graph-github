@@ -64,52 +64,14 @@ function eraseCookie(name) {
 }
 /*------------------------------------------------*/
 
-/*------------------------------------------------*/
-
-/*----Sets the page up by making the necessary http requests----*/
-// function setUp() {
-
-//     var CURRENT_TOKEN=readCookie("token");
-//     fetch('https://api.github.com/orgs/google/public_members').then(function(js){
-//             return js.text();
-//          }).then(function(x){
-//             var arraydata=createJSONDATA(JSON.parse(x));
-//             renderjsontree(JSON.parse(arraydata));
-//             stopLoad();
-//          });
-// }
-//     function stopLoad(){
-//         document.getElementById("loader").style.display="none";
-//         document.getElementById("preload").style.display="block"; 
-//     }
-
-//     checking the graph
-// function checkgraph(){
-//         fetch('https://api.github.com/graphql', 
-//         { 
-//             method: 'POST', 
-//             body: " \
-//  { \
-//    \"query\": \"query { viewer { login{number_of_repos:3} }}\" \
-//  } \
-// ",
-//             headers: {"Authorization":"bearer "+sessionStorage.token}
-//         })
-//         .then(function(f) {
-//             // console.log(f);
-//             return f.text();
-//         }).then(function(jF){
-//             console.log(JSON.parse(jF));
-//             //showAllrepos(JSON.parse(jF));
-//         });
-//     }
-
-
 function stopLoad(){
   document.getElementById("loader").style.display="none";
   document.getElementById("preload").style.display="block";
    $("#info" ).remove();
 }
+
+/*------------------------------------------------*/
+
 function getServerData(){
     document.getElementById("loader").style.display="block";
     var name=document.getElementById("selected").innerHTML;
@@ -154,21 +116,13 @@ else
   prompt("Please choose type of graph!");
 }
 
-//   }
-// function getChildren(key,data){
-//     var children= new Array();
-//   for(var j=0;j<data.length;j++){
-//   var tmp={name :data[j][key].toString().replace((/[\.{}]/g), "*"), size:(j*18+j)}
-//   children.push(tmp);
-//   }
-//   return children;
-// }
+/*------------------------------------------------*/
 
 function renderjsontree(theData){
   debugger;
     var margin = {top: 20, right: 90, bottom: 30, left: 90},
     width = 1000 - margin.left - margin.right,
-    height = 3000 - margin.top - margin.bottom;
+    height = 3300 - margin.top - margin.bottom;
      var svg = d3.select("#preload").append("svg")
     .attr("width", width + margin.right + margin.left)
     .attr("height", height + margin.top + margin.bottom)
@@ -216,8 +170,7 @@ var stratify = d3.stratify()
 }
 /*------------------------------------------------*/
 function renderjsonInteractive(theData){
-  //document.getElementById("graph").style.height="3000px";
-  //document.getElementById("graph").style.width="3000px";
+  
 var margin = {top: 20, right: 90, bottom: 30, left: 90},
     width = 1000 - margin.left - margin.right,
     height = 3000 - margin.top - margin.bottom;
@@ -400,8 +353,6 @@ function update(source) {
   }
 }
 }
-
-/*------------------------------------------------*/
 
 /*-------------Sets repos information-------------*/
 function showAllrepos(information){
