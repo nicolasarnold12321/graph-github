@@ -77,13 +77,12 @@ function getServerData(){
     var name=document.getElementById("selected").innerHTML;
     var type=document.getElementById("optType").value;
     if(type!=""){
-      debugger;
       if(type!="Interactive repository"&&name!="Choose Organisation"){
      fetch('/graph.json?name='+name.toLowerCase()+'&type='+(type=="Denograph"?"1":"0")).then(function(response){
              if(response.status==200)
               return response.json();
             alert("There was an error with your request");
-            document.location.href="http://github-graph-api.herokuapp.com/index";
+           location.reload();
         }).then(function(data){
             if(document.getElementById("optType").value=="Denograph interactive"){
               renderjsonInteractive(data);}
@@ -102,7 +101,7 @@ function getServerData(){
             if(response.status==200)
               return response.json();
             alert("There was an error with your request");
-            document.location.href="http://github-graph-api.herokuapp.com/index";
+            location.reload();
           }).then(function(data){
               renderjsonInteractive(data);
               stopLoad();
