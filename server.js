@@ -111,7 +111,13 @@ app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
     var token=req.user.accessToken
+    var username=req.user.profile.username
+    var url=req.user.profile.profileUrl
+    var avatar=req.user.profile._json.avatar_url
     res.cookie('token', token, {maxAge:900000})
+    res.cookie('username', username, {maxAge:900000})
+    res.cookie('avatar_url', avatar, {maxAge:900000})
+    res.cookie('profileUrl', url, {maxAge:900000})
     res.redirect('/');
   }
 );
@@ -134,7 +140,10 @@ app.get('/', function(req, res) {
   if (!token) {
     return res.redirect('/login');
   }
-    res.render('index');
+    res.render('index.ejs',{pic :req.cookies['avatar_url'],
+                            username :req.cookies['username'],
+                            url :req.cookies['profileUrl']
+                            });
   });
 
 app.use(express.static('public'));
