@@ -121,6 +121,10 @@ app.get('/auth/github/callback',
     res.redirect('/');
   }
 );
+app.get('/logout', function(req, res) {
+  res.clearCookie("token");
+  res.render('login.ejs',{a:7});
+});
 
 app.get('/login', function(req, res) {
   res.render('login.ejs',{a:7});
