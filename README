@@ -1,5 +1,5 @@
 
-This is a GitHub API that works with firebase, to retrive information on a logged in user.
+This is a GitHub API that works with node js, to retrive information on a logged in user as well as queries to another repo and organisation repos.
 
 
 Website http://github-graph-api.herokuapp.com/
