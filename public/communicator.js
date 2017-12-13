@@ -2,12 +2,8 @@
   $('.dropdown-menu a').click(function(){
     $('#selected').text($(this).text());
   });
-  $('#optType label').click(function(){
-    debugger;
-    // $('#optType label input').removeAttr('checked');
-    // Refresh the jQuery UI buttonset.                  
+  $('#optType label').click(function(){                
     $('#optType').val($(this).text());
-     // $(this).attr('checked');
     if($(this).text()=="Interactive repository"){
      $( ".dropdown" ).css("visibility", "hidden");
      $( "#custominput" ).css("visibility", "visible");
@@ -41,13 +37,15 @@ function deleteAllCookies() {
 function signout(){
     sessionStorage.clear;
    deleteAllCookies();
+   alert("Logging out");
    fetch("https://github.com/logout",{ 
             method: 'GET'
         }).then(function(f) {
-            prompt("LoggedOut");
+            alert("LoggedOut");
         });
    location.reload();
 }
+
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -118,7 +116,6 @@ else
 /*------------------------------------------------*/
 
 function renderjsontree(theData){
-  debugger;
     var margin = {top: 20, right: 90, bottom: 30, left: 90},
     width = 1000 - margin.left - margin.right,
     height = 7000 - margin.top - margin.bottom;
