@@ -36,29 +36,45 @@
                      <div id="info">
                          <p>Choose the following data you want to see</p>
                          <div class="container w3-white">
-                          <div id ="optType" class="radio" value="0">
-                             <label><input type="radio" name="opt1" id = "opt1">Denograph interactive</label>
-                              <label><input type="radio" name="opt1" id = "opt1">Interactive repository</label>
-                             <label><input type="radio" name="opt1" id = "opt1">Denograph</label>
-                         </div>
-                         <div class="dropdown">
-                             <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
-                               <span id="selected">Choose Organisation</span><span class="caret"></span></a>
-                           <ul class="dropdown-menu" id="list">
-                             <li><a href="#">Github</a></li>
-                             <li><a href="#">Facebook</a></li>
-                             <li><a href="#">Twitter</a></li>
-                             <li><a href="#">Linkedin</a></li>
-                           </ul>
+                             <div id ="optType" class="radio" value="0">
+                        <label><input type="radio" name="opt1" id = "opt1">Denograph interactive</label>
+                         <label><input type="radio" name="opt1" id = "opt1">Interactive repository</label>
+                        <label><input type="radio" name="opt1" id = "opt1">Denograph</label>
+                        <label><input type="radio" name="opt1" id = "opt1">Bubble</label>
+                    </div>
+                    <div class="dropdown">
+                        <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span id="selected">Choose Organisation</span><span class="caret"></span></a>
+                      <ul class="dropdown-menu" id="list">
+                        <li><a href="#">Github</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Linkedin</a></li>
+                      </ul>
+                    </div>
+                          <div id="custominput" class="row" style="visibility: hidden">
+                        <div class="col-lg-6 offset-lg-3">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                         <p>Type the repository name here<p>
+                                    </div>
+                                     <div class="col-lg-6">
+                                        <input type="text" name="name" id="reponame"><br>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                         <p>Type the name of the owner here<p>
+                                    </div>
+                                     <div class="col-lg-6">
+                                       <input type="text" name="owner" id="owner"></div><br>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                       <div id="custominput" style="visibility: hidden">
-                             Type the repository name here
-                             <input type="text" name="name" id="reponame"><br>
-                             Type the name of the owner here
-                             <input type="text" name="owner" id="owner">
-                         </div>
-                         <button><a onclick="getServerData()">Let's get that data!</a></button>
-                     </div>
+                        <button><a onclick="getServerData()">Let's get that data!</a></button>
+                    </div>
                  </div>
             </div>
     </header>
