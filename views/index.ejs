@@ -34,6 +34,7 @@
       <h1 class="w3-margin w3-jumbo">This where we will query the data</h1>
           <div id="inner">
                      <div id="info">
+                        <form onsubmit="getServerData()">
                          <p>Choose the following data you want to see</p>
                          <div class="container w3-white">
                              <div id ="optType" class="radio" value="0">
@@ -75,6 +76,7 @@
                         </div>
                         <button><a onclick="getServerData()">Let's get that data!</a></button>
                     </div>
+                     </form>
                  </div>
             </div>
     </header>
