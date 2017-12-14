@@ -65,6 +65,7 @@ function eraseCookie(name) {
 function stopLoad(){
   document.getElementById("loader").style.display="none";
   document.getElementById("preload").style.display="block";
+  document.getElementById("dataHere").style.display="block";
    $("#info" ).remove();
 }
 
