@@ -99,7 +99,7 @@ function getServerData(){
             if(response.status==200)
               return response.json();
             alert("There was an error with your request");
-             alert(response.body.text());
+             alert(response.body);
             location.reload();
           }).then(function(data){
               renderjsonInteractive(data);
