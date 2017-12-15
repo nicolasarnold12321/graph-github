@@ -80,8 +80,7 @@ function getServerData(){
      fetch('/graph.json?name='+name.toLowerCase()+'&type='+(type=="Denograph"?"1":"0")).then(function(response){
              if(response.status==200)
               return response.json();
-            // alert("There was an error with your request");
-            alert(response.body.text());
+            alert("There was an error with your request");
            location.reload();
         }).then(function(data){
             if(document.getElementById("optType").value=="Denograph interactive"){
@@ -99,7 +98,6 @@ function getServerData(){
             if(response.status==200)
               return response.json();
             alert("There was an error with your request");
-             alert(response.body);
             location.reload();
           }).then(function(data){
               renderjsonInteractive(data);
