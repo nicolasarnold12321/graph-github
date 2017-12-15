@@ -70,8 +70,6 @@ app.get('/graph.json.repo', function(req,res){
                 // 'Authorization': 'token '+ token
               }
   }, function(err,response,body){
-    console.log(err+body);
-    console.log(response.statusCode);
     if(!err&&response.statusCode == 200){
     var d=createJSONDATAInteractive(JSON.parse(body),owner);
     res.send(d);
@@ -198,34 +196,6 @@ function createJSONDATA(data,name){
   )
   return d3_elements;
 }
-
-//  function createJSONDATAInteractive(data,name){
-//   let keys_to_display = new Array("login","id","avatar_url",
-//                           "url","html_url","followers_url","following_url",
-//                           "gists_url","starred_url","subscriptions_url","organizations_url",
-//                           "repos_url","events_url","received_events_url" );
-//   var d3_elements=new Array();
-//   var keys= new Array();
-
-//   for(var i=0; i<keys_to_display.length;i++){
-//     var childrens= getChildren(keys_to_display[i],data);
-//     var key={name:keys_to_display[i].toString().replace((/[\.{}]/g), "*"), children :childrens};
-//     keys.push(key);
-//   }
-//   var name= {name:name, children:keys};
-//   d3_elements.push(name);
-//   return name;
-// }
-
-//   function getChildren(key,data){
-//       var children= new Array();
-//     for(var j=0;j<data.length;j++){
-//       var tmp={name :data[j][key], size:(j*18+j)}
-//       children.push(tmp);
-//     }
-//     return children;
-//   }
-
 
 function createJSONDATAInteractive(data,name){
   var d3_elements;
