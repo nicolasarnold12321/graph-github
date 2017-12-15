@@ -80,7 +80,8 @@ function getServerData(){
      fetch('/graph.json?name='+name.toLowerCase()+'&type='+(type=="Denograph"?"1":"0")).then(function(response){
              if(response.status==200)
               return response.json();
-            alert("There was an error with your request");
+            // alert("There was an error with your request");
+            alert(response.body.text());
            location.reload();
         }).then(function(data){
             if(document.getElementById("optType").value=="Denograph interactive"){
@@ -94,8 +95,6 @@ function getServerData(){
         var repo=document.getElementById('reponame').value;
         var owner=document.getElementById('owner').value;
         if(repo!=""||owner!=""){
-          console.log('here');
-          console.log(repo+owner);
           fetch('/graph.json.repo?repo='+repo.toLowerCase()+'&owner='+owner.toLowerCase()).then(function(response){
             if(response.status==200)
               return response.json();
