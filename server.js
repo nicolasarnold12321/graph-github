@@ -1,8 +1,8 @@
 
 
 //my acccess keys to my app
-const GITHUB_CLIENT_ID = "da1ac7f832db7c4d5efa";
-const GITHUB_CLIENT_SECRET = "69ae815eb6593c68bf080f9b2f8b162d86acc14c";
+const GITHUB_CLIENT_ID = "yourgithubclientid";
+const GITHUB_CLIENT_SECRET = "yourgithubclientsecret";
 
 
 
